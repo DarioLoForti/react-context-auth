@@ -11,15 +11,17 @@ export default function(){
 
     return(<>
         <form onSubmit={handleLogin}>
+        <label> Email </label>
             <input 
                 type="text"
                 placeholder="Email" 
             />
+            <label> Password </label>
             <input 
                 type="password"
                 placeholder="Password" 
             />
-            <button>Loggati</button>
+            <button>Login</button>
         </form>
     </>)
 
