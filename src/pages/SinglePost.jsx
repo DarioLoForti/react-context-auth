@@ -31,8 +31,8 @@ export default function(){
                 <h1>{ post.title }</h1>
                 <img src={post.image} alt={post.title} />
                 <p>{post.content}</p>
-                <h4>Category: {post.category.name}</h4>
-                <h4>Tags:</h4>
+                {post.category && <h4>Category: {post.category.name}</h4>}
+                {post.tags && <h4>Tags:</h4>}
                 <ul>
                     {post.tags.map(t => (
                         <li key={`tag${t.id}`}>
@@ -40,7 +40,7 @@ export default function(){
                         </li>
                     ))}
                 </ul>
-                <h4>User: {post.user}</h4>
+                {post.user && <h4>User: {post.user}</h4>}
             </div>
         }
     </>)
