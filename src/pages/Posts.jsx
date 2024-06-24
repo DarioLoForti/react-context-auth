@@ -13,25 +13,26 @@ const currPage = parseInt(searchParams.get('page'));
 
 useEffect(() => {
     setPosts(null);
-        const url = `${apiUrl}/posts?page=${currPage}&limit=10`;
+        const url = `${apiUrl}/posts?page=${currPage}&limit=9`;
         axios.get(url).then(({data}) => setPosts(data.posts)
         
     );
 }, [searchParams]);
 
     return (<>
-            <div className="paginator">
-                    <span>Pagina corrente: {currPage}</span>
-                    <button 
-                        style={{visibility: currPage - 1 > 0 ? 'visible' : 'hidden'}} 
-                        onClick={()=>setSearchParams({page: currPage - 1})
-                    }>-</button>
-                    <button 
-                        onClick={()=>setSearchParams({page: currPage + 1})
-                    }>+</button>
-                </div>
+           
         <div className="posts">
             <h1>Posts</h1>
+            <div className="paginator">
+                <span>Current Page: {currPage}</span>
+                <button 
+                    style={{visibility: currPage - 1 > 0 ? 'visible' : 'hidden'}} 
+                    onClick={()=>setSearchParams({page: currPage - 1})
+                }>-</button>
+                <button 
+                    onClick={()=>setSearchParams({page: currPage + 1})
+                }>+</button>
+            </div>
             {posts === null && <span className="loader"></span>}
             {posts?.length === 0 && 'Post not found.'}
             {posts?.length > 0 && 

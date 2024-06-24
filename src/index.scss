@@ -181,7 +181,7 @@ form{
 
 
 .posts {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -264,5 +264,15 @@ form{
     }
 }
 
+.paginator{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    user-select: none;
+    button{
+      width: 18px;
+      height: 18px;
+    }
+  }
 
   
