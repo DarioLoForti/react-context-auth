@@ -1,7 +1,7 @@
-import axios, { toFormData } from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
-import PostCard from "../components/PostCard";
+import { Link } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_BASE_API_URL;
 
 export default function(){
@@ -14,7 +14,6 @@ export default function(){
         const url = `${apiUrl}/posts/${slug}`;
         const { data: post } = await axios.get(url);
             setPost(post);
-            console.log(post);
     }
 
     useEffect(() => {
@@ -24,19 +23,24 @@ export default function(){
     
 
     return(<>
+    <div className="back">
+        <Link to="../" relative="path">Back</Link>
+    </div>
         {post === null ? <span>loading</span> :
-            <div>
+            <div className="post">
                 <h1>{ post.title }</h1>
                 <img src={post.image} alt={post.title} />
                 <p>{post.content}</p>
-                {/* <ul>
+                <h4>{post.category}</h4>
+                <ul>
                     {post.tags.map(t => (
                         <li key={`tag-${top.id}`}>
                             <h3>{t.name}</h3>
 
                         </li>
                     ))}
-                </ul> */}
+                </ul>
+                <h4>{post.user}</h4>
             </div>
         }
     </>)

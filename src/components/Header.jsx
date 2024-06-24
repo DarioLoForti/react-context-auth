@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const urlPages = [
     {
@@ -12,6 +13,9 @@ const urlPages = [
 ]
 
 export default function(){
+
+const {isLoggedIn, logout} = useAuth();
+
     return (
         <header>
             <nav className="navbar">
@@ -21,6 +25,16 @@ export default function(){
                             <NavLink to={href}>{label}</NavLink>
                         </li>
                     ))}
+                    {!isLoggedIn && 
+                    <li>
+                        <NavLink to="/login">Login</NavLink>
+                    </li>
+                    }
+                    {isLoggedIn &&
+                    <li>
+                        <button onClick={logout}>Logout</button>
+                    </li>
+                    }
                 </menu>
             </nav>
         </header>

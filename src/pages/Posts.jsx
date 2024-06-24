@@ -16,17 +16,22 @@ useEffect(() => {
 }, []);
 
     return (<>
+        
         <div className="posts">
+            <h1>Posts</h1>
             {posts === null && <span className="loader"></span>}
             {posts?.length === 0 && 'Post not found.'}
             {posts?.length > 0 && 
-                <ul>
+                <div className="card-container">
                 {posts.map(p => (
-                    <li key={`posts${p.id}`}>
-                        <Link to={`/posts/${p.slug}`} state={{ posts: p }}>{p.title}</Link>
-                    </li>
+                    <div className="card" key={`posts${p.id}`}>
+                        <Link to={`/posts/${p.slug}`} state={{ posts: p }}>
+                            <h2>{p.title}</h2>
+                        </Link>
+                            <p>{p.content}</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
             }
         </div>
     </>)
