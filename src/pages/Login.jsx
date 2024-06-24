@@ -1,4 +1,5 @@
 import { useAuth } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function(){
 
@@ -23,6 +24,12 @@ export default function(){
             />
             <button>Login</button>
         </form>
+
+        <div className="signIn">
+            <h3>
+            don't have an account? <Link to="/register">Register</Link>
+            </h3>
+        </div>
     </>)
 
 }

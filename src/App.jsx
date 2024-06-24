@@ -6,6 +6,7 @@ import Posts from "./pages/Posts";
 import SinglePost from "./pages/SinglePost";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import CreatePost from "./pages/CreatePost";
 
 export default function() { 
@@ -17,6 +18,7 @@ export default function() {
                     <Route path="*" element={<NotFound/>}/>
                         <Route index element={<Home/>} />
                         <Route path="login" element={<Login/>}/>
+                        <Route path="register" element={<Register/>}/>
                         <Route path="posts">
                             <Route index element={<Posts/>} />
                             <Route path=":slug" element={<SinglePost/>}/>
