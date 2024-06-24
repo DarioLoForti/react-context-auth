@@ -29,7 +29,6 @@ export default function ({initialData, onSubmit}) {
         setData(data => ({...data, [key]: newValue}));
     }
 
-    console.log(data);
     return (
         <>
             <form onSubmit={handleSubmit} id="articleForm">
