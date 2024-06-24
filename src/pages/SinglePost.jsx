@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_BASE_API_URL;
 
@@ -31,12 +31,11 @@ export default function(){
                 <h1>{ post.title }</h1>
                 <img src={post.image} alt={post.title} />
                 <p>{post.content}</p>
-                <h4>{post.category}</h4>
+                <h4>{post.category.name}</h4>
                 <ul>
                     {post.tags.map(t => (
-                        <li key={`tag-${top.id}`}>
-                            <h3>{t.name}</h3>
-
+                        <li key={`tag${t.id}`}>
+                            {t.name}
                         </li>
                     ))}
                 </ul>
