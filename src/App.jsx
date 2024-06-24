@@ -3,6 +3,7 @@ import DefaultLayout from "./pages/DefaultLayout";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import SinglePost from "./pages/SinglePost";
+import NotFound from "./pages/NotFound";
 
 export default function() { 
 
@@ -10,6 +11,7 @@ export default function() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<DefaultLayout />}>
+                <Route path="*" element={<NotFound/>}/>
                     <Route index element={<Home/>} />
                     <Route path="posts">
                         <Route index element={<Posts/>} />
